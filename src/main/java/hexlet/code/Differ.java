@@ -34,19 +34,23 @@ public class Differ {
         for (String key : keys) {
             String value1 = file1.containsKey(key) ? file1.get(key).toString() : null;
             String value2 = file2.containsKey(key) ? file2.get(key).toString() : null;
-            if (value1 != null && value2 != null && value1.equals(value2)) {
-                addValue(sb, " ", key, value1);
-            } else {
-                if (value1 != null) {
-                    addValue(sb, "-", key, value1);
-                }
-                if (value2 != null) {
-                    addValue(sb, "+", key, value2);
-                }
-            }
+            checkAndWriteValues(sb, key, value1, value2);
         }
         sb.append("\n}");
         return sb.toString();
+    }
+
+    private static void checkAndWriteValues(StringBuilder sb, String key, String value1, String value2) {
+        if (value1 != null && value1.equals(value2)) {
+            addValue(sb, " ", key, value1);
+        } else {
+            if (value1 != null) {
+                addValue(sb, "-", key, value1);
+            }
+            if (value2 != null) {
+                addValue(sb, "+", key, value2);
+            }
+        }
     }
 
     private static void addValue(StringBuilder sb, String sign, String key, String value) {
