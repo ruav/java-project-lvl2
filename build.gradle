@@ -6,6 +6,7 @@
  */
 
 plugins {
+    id 'com.github.ben-manes.versions' version '0.38.0'
     id 'application'
 }
 
@@ -23,5 +24,13 @@ application {
 
 
 compileJava {
-    options.release = 15
+    options.release = 11
+    options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
+
 }
+
+dependencies {
+    implementation 'info.picocli:picocli:4.6.1'
+    annotationProcessor 'info.picocli:picocli-codegen:4.6.1'
+}
+
