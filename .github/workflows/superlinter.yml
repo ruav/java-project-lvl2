@@ -37,4 +37,8 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_KEY }}
         run: |
-          sudo ./cc-test-reporter after-build -r $CC_TEST_REPORTER_ID -t jacoco
+          JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter \
+            format-coverage target/site/jacoco/jacoco.xml     \
+            --input-type jacoco
+          ./cc-test-reporter upload-coverage
+#          sudo ./cc-test-reporter after-build -r $CC_TEST_REPORTER_ID -t jacoco
