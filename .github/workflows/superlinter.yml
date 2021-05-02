@@ -38,7 +38,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_KEY }}
         run: |
           JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter \
-            format-coverage ./build/reports/jacoco/test/jacocoTestReport.xml     \
+            format-coverage ./build/reports/jacoco/test/jacoco.xml     \
             --input-type jacoco
           mv ./build/reports/jacoco/test/jacocoTestReport.xml ./build/reports/jacoco/test/jacoco.xml
           ./cc-test-reporter upload-coverage
