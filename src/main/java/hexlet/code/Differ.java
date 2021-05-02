@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +20,8 @@ public class Differ {
     }
 
     public static String generate(String filepath1, String filepath2, String format) throws IOException {
-        Map<String, Object> file1 = MAPPER.readValue(new File(filepath1), Map.class);
-        Map<String, Object> file2 = MAPPER.readValue(new File(filepath2), Map.class);
+        Map<String, Object> file1 = Parser.parseFileToMap(new File(filepath1));
+        Map<String, Object> file2 = Parser.parseFileToMap(new File(filepath2));
 
         List<String> keys = new ArrayList<>(new HashSet<>() {{
             addAll(file1.keySet());
@@ -53,7 +54,7 @@ public class Differ {
     }
 
     private static void addValue(StringBuilder sb, String sign, String key, String value) {
-        sb.append(String.format("\n\t%s %s: %s", sign, key, value));
+        sb.append(String.format("\n  %s %s: %s", sign, key, value));
 //        sb.append("\n\t").append(sign).append(" ").append(key).append(": ").append(value);
     }
 
