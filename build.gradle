@@ -30,7 +30,12 @@ compileJava {
 }
 
 dependencies {
+    // json
+    implementation'com.fasterxml.jackson.core:jackson-databind:2.12.0'
+
+    // picocli
     implementation 'info.picocli:picocli:4.6.1'
     annotationProcessor 'info.picocli:picocli-codegen:4.6.1'
+
 }
 
