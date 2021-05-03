@@ -11,4 +11,4 @@ run: #
 lint: #
 		./gradlew checkstyleMain
 tests: #
-        ./gradlew jacocoTestReport
+		./gradlew jacocoTestReport
