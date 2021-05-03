@@ -10,9 +10,9 @@ jobs:
     # Name the Job
     name: Run project
     # Set the type of machine to run on
-#    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     # change machine to windows
-    runs-on: windows-latest
+#    runs-on: windows-latest
     steps:
       # Copy project through checkout
       - name: Checkout
