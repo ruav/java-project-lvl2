@@ -12,4 +12,5 @@ lint: #
 		./gradlew checkstyleMain
 reports: #
 		./gradlew test
-		./gradlew jacocoTestReport coveralls
+# 		./gradlew jacocoTestReport coveralls
+		./gradlew jacocoTestReport
